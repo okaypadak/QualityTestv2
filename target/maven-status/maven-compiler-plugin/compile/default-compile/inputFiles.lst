@@ -1,7 +1,3 @@
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/JWTAthenticationEntryPoint.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/JWTAuthenticationFilter.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/JwtService.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/QualityTestApplication.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/SecurityConfig.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/UrunController.java
-/home/oki/Belgeler/GitHub/QualityTest/src/main/java/dev/padak/backend/QualityTest/UrunDTO.java
+/home/oki/Belgeler/GitHub/QualityTestv2/src/main/java/dev/padak/backend/QualityTest/QualityTestApplication.java
+/home/oki/Belgeler/GitHub/QualityTestv2/src/main/java/dev/padak/backend/QualityTest/UrunController.java
+/home/oki/Belgeler/GitHub/QualityTestv2/src/main/java/dev/padak/backend/QualityTest/UrunDTO.java

@@ -1,7 +1,0 @@
-dev/padak/backend/QualityTest/UrunDTO.class
-dev/padak/backend/QualityTest/JWTAthenticationEntryPoint.class
-dev/padak/backend/QualityTest/SecurityConfig.class
-dev/padak/backend/QualityTest/JWTAuthenticationFilter.class
-dev/padak/backend/QualityTest/JwtService.class
-dev/padak/backend/QualityTest/QualityTestApplication.class
-dev/padak/backend/QualityTest/UrunController.class
