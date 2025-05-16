@@ -80,7 +80,7 @@
             <artifactId>quality-auth-client</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/quality-auth-client-1.0.jar</systemPath>
+            <systemPath>${project.basedir}/extraLibs/quality-auth-client-1.0.jar</systemPath>
         </dependency>
 
     </dependencies>
@@ -103,6 +103,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <includeSystemScope>true</includeSystemScope>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
