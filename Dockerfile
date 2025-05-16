@@ -31,7 +31,14 @@ COPY --from=builder /app/target/quality-test-1.0.jar app.jar
 COPY lib/ lib/
 
 # Ek log
-RUN echo "📄 Kopyalanan dosyalar:" && ls -la /app && ls -la /app/lib
+# Build edilen JAR’ı ve lib klasörünü kopyala
+COPY --from=builder /app/target/quality-test-1.0.jar app.jar
+COPY lib/ lib/
+
+# 🔍 DEBUG LOG: lib klasörü gerçekten kopyalanmış mı?
+RUN echo "📦 /app dizini:" && ls -la /app && \
+    echo "📦 /app/lib dizini:" && ls -la /app/lib && \
+    echo "✅ lib/ içeriği başarıyla kopyalandı!" || echo "❌ lib/ klasörü eksik veya boş!"
 
 # Uygulamanın çalışacağı port
 EXPOSE 8082
