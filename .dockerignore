@@ -1,0 +1,23 @@
+# Gereksiz sistem dosyaları
+*.log
+*.iml
+*.idea/
+*.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Maven cache, test dosyaları
+.mvn/
+.settings/
+target/test-classes/
+
+# Sadece test sınıfları dışlanır, JAR dosyası kalır
+# target dizininden yalnızca .jar kalmalı
+
+# Eğer lib/ kullanıyorsan, dışlama!
+# Eğer yanlışlıkla aşağıdaki varsa → YANLIŞ
+# lib/
+
+!lib/

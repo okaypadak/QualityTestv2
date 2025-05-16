@@ -1,47 +1,46 @@
-##########################
-# 1. Build aşaması (Maven)
-##########################
+###############################
+# 1. Maven ile Build Aşaması
+###############################
 FROM maven:3.9.4-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
-# Tüm proje dosyalarını kopyala
+# Proje dosyalarını kopyala
 COPY . .
 
-# AŞAMA LOGU
-RUN echo "📦 Maven build başlatılıyor..."
+# Log: Başlangıç
+RUN echo "🚀 Maven derleme başlıyor..."
 
-# Derleme
-RUN mvn clean package -DskipTests && echo "✅ Maven build tamamlandı!" || (echo "❌ Maven build başarısız!" && exit 1)
+# Maven ile derle
+RUN mvn clean package -DskipTests && \
+    echo "✅ Maven build tamamlandı!" || (echo "❌ Maven build başarısız oldu!" && exit 1)
 
-# Sonuçları kontrol et
-RUN echo "📂 target dizin içeriği:" && ls -la target
+# Log: target klasörünü göster
+RUN echo "📂 target klasörü içeriği:" && ls -la target
 
-##########################
-# 2. Uygulama çalışma aşaması
-##########################
+###############################
+# 2. Uygulama Runtime Aşaması
+###############################
 FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Build edilmiş JAR dosyasını al
+# Derlenmiş JAR'ı al
 COPY --from=builder /app/target/quality-test-1.0.jar app.jar
 
-# lib klasörünü al (external JAR'lar için)
+# lib klasörünü al
 COPY lib/ lib/
 
-# Ek log
-# Build edilen JAR’ı ve lib klasörünü kopyala
-COPY --from=builder /app/target/quality-test-1.0.jar app.jar
-COPY lib/ lib/
+# Log: app ve lib dizinlerinin içeriği
+RUN echo "📦 /app dizini içeriği:" && ls -la /app && \
+    echo "📦 /app/lib dizini içeriği:" && ls -la /app/lib && \
+    echo "✅ lib klasörü başarıyla kopyalandı!" || echo "❌ lib klasörü eksik veya boş!"
 
-# 🔍 DEBUG LOG: lib klasörü gerçekten kopyalanmış mı?
-RUN echo "📦 /app dizini:" && ls -la /app && \
-    echo "📦 /app/lib dizini:" && ls -la /app/lib && \
-    echo "✅ lib/ içeriği başarıyla kopyalandı!" || echo "❌ lib/ klasörü eksik veya boş!"
+# Zaman dilimi ayarı (opsiyonel)
+ENV TZ=Europe/Istanbul
 
-# Uygulamanın çalışacağı port
-EXPOSE 8082
+# Uygulama portu
+EXPOSE 8080
 
-# Uygulamayı başlat
+# Uygulama çalıştırma komutu
 ENTRYPOINT ["java", "-jar", "app.jar"]
