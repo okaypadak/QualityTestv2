@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 @EnableMethodSecurity
 @SpringBootApplication
+@Import(org.padak.JwtSecurityAutoConfiguration.class)
 public class QualityTestApplication {
 
 	public static void main(String[] args) {
